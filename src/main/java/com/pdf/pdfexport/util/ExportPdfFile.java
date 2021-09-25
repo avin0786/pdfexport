@@ -30,27 +30,17 @@ public class ExportPdfFile {
 		try {
 			ClassPathResource pdfFile = new ClassPathResource(
 					"pdf/Form_AOC-4.pdf");
-			PDDocument pdDocumnet = PDDocument.load(pdfFile.getFile());
-			PDAcroForm pdAcroForm = pdDocumnet.getDocumentCatalog()
-					.getAcroForm();
 			
-			ClassPathResource pdfFile2 = new ClassPathResource(
-					"pdf/Form_AOC4.pdf");
-			PDDocument pdDocumnet2 = PDDocument.load(pdfFile2.getFile());
-			PDDocumentCatalog docCatalog = pdDocumnet2.getDocumentCatalog();
-		    PDAcroForm form = docCatalog.getAcroForm();
-		    PDXFAResource xfa = form.getXFA();
-	        Document domDocument = xfa.getDocument();
-	        System.out.println(domDocument.getNodeValue());
-			pdAcroForm.setXFA(xfa);
-			//Map<String,String> dataMap = getPdfFileData();
+			
+
+			Map<String,String> dataMap = getPdfFileData();
 			/*for (Map.Entry<String, String> entry : dataMap.entrySet()) {
 				if (pdAcroForm.getField((String) entry.getKey()) != null) {
 					pdAcroForm.getField((String) entry.getKey()).setValue(
 							(String) entry.getValue());
 				}
 			} */
-			pdDocumnet.save(new File("abc.pdf"));
+			;
 			return pdfFile.getInputStream();
 
 		} catch (Exception e) {
@@ -65,11 +55,12 @@ public class ExportPdfFile {
 		Map<String, String> dataMap = new HashMap<>();
 		try {
 			ClassPathResource pdfFile = new ClassPathResource(
-					"pdf/Form_AOC4.pdf");
+					"pdf/Form_AOC5.pdf");
 			PDDocument pdDocumnet = PDDocument.load(pdfFile.getFile());
 			PDDocumentCatalog docCatalog = pdDocumnet.getDocumentCatalog();
 		    PDAcroForm form = docCatalog.getAcroForm();
 		    PDXFAResource xfa = form.getXFA();
+		    System.out.println("XFA"+xfa.getDocument().toString());
 		    
 		    String s = new String(xfa.getBytes());
 		    Iterator<PDField> iterate  = form.getFieldIterator();
@@ -77,13 +68,13 @@ public class ExportPdfFile {
 		    	
 		    {
 		    	PDField item =iterate.next();
-		    	System.out.println("Item="+item.getFieldType());
-		    	System.out.println("Item="+item.getWidgets());
+		    	//System.out.println("Item="+item.getFieldType());
+		    	//System.out.println("Item="+item.getWidgets());
 		    }
-		   /* for(PDField filed :form.getFields()){
-		    	System.out.println("filed=" +filed.getAlternateFieldName());
-				System.out.println("filed=" +filed.getFullyQualifiedName());
-				dataMap.put(filed.getPartialName(), filed.getValueAsString());
+		  for(PDField filed :form.getFields()){
+		    	//System.out.println("filed=" +filed.getAlternateFieldName());
+				//System.out.println("filed=" +filed.getFullyQualifiedName());
+				//dataMap.put(filed.getPartialName(), filed.getValueAsString());
 		    }
 		   
 		    //String replacementString = IOUtils.toString(data.getDataStream());
@@ -97,7 +88,7 @@ public class ExportPdfFile {
 				dataMap.put(filed.getPartialName(), filed.getValueAsString());
 			}
 			//System.out.println("Data map=" +dataMap.toString());
-			*/
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

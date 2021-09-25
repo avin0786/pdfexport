@@ -17,12 +17,40 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
-	
-	<dependency>
+
+		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>2.0.24</version>
 		</dependency>
+		<dependency>
+			<groupId>com.adobe.livecycle</groupId>
+			<artifactId>aemformsjee-client-sdk</artifactId>
+			<version>6.5.0</version>
+		</dependency>
+
+		<!-- I text Dependency -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>pdfa</artifactId>
+			<version>7.1.16</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>pdfxfa</artifactId>
+			<version>2.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>forms</artifactId>
+			<version>7.1.16</version>
+		</dependency>
+		<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itext-licensekey</artifactId>
+    <version>3.1.5</version>
+  </dependency>
+		<!-- I text Dependency end-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -56,10 +84,10 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
@@ -69,7 +97,6 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
