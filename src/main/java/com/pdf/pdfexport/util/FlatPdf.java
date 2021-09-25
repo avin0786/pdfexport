@@ -14,6 +14,12 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.licensekey.LicenseKey;
 
 public class FlatPdf {
+	/**
+	 * @param args
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws FileNotFoundException,
 			IOException, InterruptedException {
 		PdfReader reader = new PdfReader(
@@ -50,13 +56,14 @@ public class FlatPdf {
 	        xfa.fillXfaForm(new FileInputStream("D:\\pdfexport\\src\\main\\resources\\Form_AOC4_data.xml"));
 	        xfa.write(pdfDoc);
 
-		Map<String, PdfFormField> fields = PdfAcroForm
+		/*Map<String, PdfFormField> fields = PdfAcroForm
 				.getAcroForm(pdfDoc, true).getFormFields();
 		for (Map.Entry<String, PdfFormField> name : fields.entrySet()) {
 			System.out
 					.println("Element getValue=" + name.getValue().getValue());
 
-		}
+		} */
+		pdfDoc.close();
 	}
 
 }
